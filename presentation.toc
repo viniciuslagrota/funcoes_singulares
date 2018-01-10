@@ -1,0 +1,5 @@
+\select@language {portuguese}
+\beamer@sectionintoc {1}{Fun\IeC {\c c}\IeC {\~o}es Singulares}{3}{0}{1}
+\beamer@subsectionintoc {1}{1}{Fun\IeC {\c c}\IeC {\~a}o Degrau}{4}{0}{1}
+\beamer@subsectionintoc {1}{2}{Fun\IeC {\c c}\IeC {\~a}o Rampa}{11}{0}{1}
+\beamer@subsectionintoc {1}{3}{Fun\IeC {\c c}\IeC {\~a}o Impulso}{14}{0}{1}

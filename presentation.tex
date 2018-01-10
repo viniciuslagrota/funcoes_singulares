@@ -1,0 +1,443 @@
+\documentclass[mathserif]{beamer}
+
+%\usetheme{LCOM}
+\usetheme{Madrid}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage[portuguese]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{booktabs}
+\usepackage{amsmath,amssymb,amsthm,mathrsfs,amsfonts,dsfont}
+\usepackage{adjustbox}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{psfrag}
+\usepackage{caption}
+\usepackage{placeins}
+\usepackage{subfig}
+\usepackage{multirow}
+\usepackage[siunitx, american]{circuitikz}
+
+\definecolor{green_variavel}{rgb}{0.13,0.57,0.2}
+\usecolortheme[named=green_variavel]{structure}
+
+\newcommand{\wait}{\vfill}
+%\newcommand{\wait}{\pause}
+	
+\DeclareMathAlphabet\mathbfcal{OMS}{cmsy}{b}{n}
+\newcommand\blfootnote[1]{%
+	\begingroup
+	\renewcommand\thefootnote{}\footnote{#1}%
+	\addtocounter{footnote}{-1}%
+	\endgroup
+}
+
+\setbeamertemplate{frametitle continuation}[from second][]
+
+\title[Funções Singulares]{Funções Singulares e suas aplicações} 
+\author[Vinícius Lagrota]{Vinícius Lagrota Rodrigues da Costa}
+\institute[CES]{Centro de Ensino Superior de Juiz de Fora}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}
+\maketitle 
+\end{frame}
+
+\begin{frame}
+\frametitle{Sumário}
+\tableofcontents
+\end{frame}
+
+%------------------------------------------------------------------------------------
+\section{Funções Singulares}
+%------------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Funções Singulares}
+\begin{itemize}
+	\item Utilizados para representarem sinais em circuitos com operações chaveadas.
+	\item Auxiliam na descrição de alguns fenômenos que ocorrem na análise de transitórios.
+	\item Por definição, são funções descontínuas ou que possuem derivadas descontínuas.
+	\item Funções singulares mais importante: \textbf{degrau}, \textbf{rampa} e \textbf{impulso}. 
+\end{itemize}
+\end{frame}
+
+	
+%------------------------------------------------
+\subsection{Função Degrau}
+\begin{frame}
+	\frametitle{Sumário}
+	\small
+	\tableofcontents[currentsubsection]
+\end{frame}
+%%-----------------------------------------------
+\begin{frame}
+\frametitle{Funções Singulares}
+\framesubtitle{Função Degrau}
+	\begin{itemize}
+		\item Utilizada para representar uma variação instantânea na tensão ou na corrente;
+		\vfill
+		\item Possíveis aplicações: circuito de controles e sistemas digitais.
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}
+\frametitle{Funções Singulares}
+\framesubtitle{Função Degrau}
+	\begin{minipage}[b]{0.45\linewidth}
+		\begin{block}{Função degrau unitária}
+			\begin{equation}\label{key}
+			v(t) = \left\{ \begin{array}{l}
+			0,~t < 0\\
+			1,~t > 0
+			\end{array} \right.
+			\end{equation}
+			Que é denotada por:
+			\begin{equation}\label{key}
+			v(t) = {U_{ - 1}}(t)
+			\end{equation}
+			\begin{center}
+				\begin{circuitikz}					
+					\begin{scope}[]
+						\draw [-latex] (0,0) -- (3,0);
+						\draw [-latex] (1.5,-0.5) -- (1.5,2);
+						\draw node[] (F) at (3,-0.5) {$t$};
+						\draw node[] (G) at (0.75,+2) {$U_{-1}(t)$};
+						\draw [color=red] (0,0) -- (1.5,0);
+						\draw [color=red] (1.5,0) -- (1.5,1);
+						\draw [color=red] (1.5,1) -- (3,1);
+						\draw node[] (I) at (1.25,1) {$1$};
+					\end{scope}				
+				\end{circuitikz}
+			\end{center}
+		\end{block}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[b]{0.45\linewidth}
+		\begin{block}{Função degrau unitária inversa}
+			\begin{equation}\label{key}
+			v(t) = \left\{ \begin{array}{l}
+			1,~t < 0\\
+			0,~t > 0
+			\end{array} \right.
+			\end{equation}
+			Que é denotada por:
+			\begin{equation}\label{key}
+			v(t) = {U_{ - 1}}(-t)
+			\end{equation}
+			\begin{center}
+				\begin{circuitikz}					
+					\begin{scope}[]
+						\draw [-latex] (0,0) -- (3,0);
+						\draw [-latex] (1.5,-0.5) -- (1.5,2);
+						\draw node[] (F) at (3,-0.5) {$t$};
+						\draw node[] (G) at (0.75,+2) {$U_{-1}(-t)$};
+						\draw [color=red] (0,1) -- (1.5,1);
+						\draw [color=red] (1.5,1) -- (1.5,0);
+						\draw [color=red] (1.5,0) -- (2.85,0);
+						\draw node[] (I) at (1.75,1) {$1$};
+					\end{scope}				
+				\end{circuitikz}
+			\end{center}
+		\end{block}
+	\end{minipage}
+\end{frame}
+
+\begin{frame}
+\frametitle{Funções Singulares}
+\framesubtitle{Função Degrau}
+\newcommand{\xshift}{6}
+\newcommand{\yshift}{0}
+\begin{overprint}
+	\only<1>
+	{
+		\begin{center}
+			\begin{circuitikz} 
+				\draw node[] at (4, 4) {para $t<t_0$};
+				\draw
+				(0,2) to[V, l_=$V_0$] (0,0)
+				(0,2) -- (1,2)
+				node[circ] (A) at (1,2) {}
+				node[circ] (B) at (1.5,2) {}
+				node[circ] (C) at (1.25,1.5) {}
+				(1.25,1.5) -- (1.25,0)
+				(0,0) -- (1.25,0)
+				node[circ] (D) at (2.5,2) {}
+				node[circ] (E) at (2.5,0) {}
+				(B) -- (D)
+				(1.25,0) -- (E)
+				(2,0) -- (2.5,0)
+				(D) to[open, v^=$v(t)$] (E);
+				\draw 
+				[-latex] (B) -- (C);					
+				
+				\begin{scope}[]
+					\draw [-latex] (\xshift-0.5,\yshift) -- (\xshift+3,\yshift);
+					\draw [-latex] (\xshift,\yshift-0.5) -- (\xshift,\yshift+2);
+					\draw node[] (F) at (\xshift+3,\yshift-0.5) {$t$};
+					\draw node[] (G) at (\xshift-0.5,\yshift+2) {$v(t)$};
+					\draw node[] (H) at (\xshift+1.5,\yshift-0.5) {$t_0$};
+					\draw [color=red] (\xshift-0.5,\yshift) -- (\xshift+1.5,\yshift);
+					\draw node[] (I) at (\xshift-0.5,\yshift+1) {$V_0$};
+				\end{scope}				
+			\end{circuitikz}
+		\end{center}
+	}	
+	\only<2>
+	{
+		\begin{center}
+			\begin{circuitikz} 
+				\draw node[] at (4, 4) {para $t>t_0$};
+				\draw
+				(0,2) to[V, l_=$V_0$] (0,0)
+				(0,2) -- (1,2)
+				node[circ] (A) at (1,2) {}
+				node[circ] (B) at (1.5,2) {}
+				node[circ] (C) at (1.25,1.5) {}
+				(1.25,1.5) -- (1.25,0)
+				(0,0) -- (1.25,0)
+				node[circ] (D) at (2.5,2) {}
+				node[circ] (E) at (2.5,0) {}
+				(B) -- (D)
+				(1.25,0) -- (E)
+				(2,0) -- (2.5,0)
+				(D) to[open, v^=$v(t)$] (E);
+				\draw [-latex] (B) -- (A);					
+				
+				\begin{scope}[]
+					\draw [-latex] (\xshift-0.5,\yshift) -- (\xshift+3,\yshift);
+					\draw [-latex] (\xshift,\yshift-0.5) -- (\xshift,\yshift+2);
+					\draw node[] (F) at (\xshift+3,\yshift-0.5) {$t$};
+					\draw node[] (G) at (\xshift-0.5,\yshift+2) {$v(t)$};
+					\draw node[] (H) at (\xshift+1.5,\yshift-0.5) {$t_0$};
+					\draw [color=red] (\xshift-0.5,\yshift) -- (\xshift+1.5,\yshift);
+					\draw [color=red] (\xshift+1.5,\yshift) -- (\xshift+1.5,\yshift+1);
+					\draw [color=red] (\xshift+1.5,\yshift+1) -- (\xshift+3,\yshift+1);
+					\draw [dotted] (\xshift,\yshift+1) -- (\xshift+1.5,\yshift+1);
+					\draw node[] (I) at (\xshift-0.5,\yshift+1) {$V_0$};
+				\end{scope}				
+			\end{circuitikz}
+		\end{center}
+	}	
+	\only<3>
+	{
+		\begin{center}
+			\begin{circuitikz} 
+%				\draw node[] at (4, 2.5) {para $t>t_0$};
+%				\draw
+%				(0,2) to[V, l_=$V_0$] (0,0)
+%				(0,2) -- (1,2)
+%				node[circ] (A) at (1,2) {}
+%				node[circ] (B) at (1.5,2) {}
+%				node[circ] (C) at (1.25,1.5) {}
+%				(1.25,1.5) -- (1.25,0)
+%				(0,0) -- (1.25,0)
+%				node[circ] (D) at (2.5,2) {}
+%				node[circ] (E) at (2.5,0) {}
+%				(B) -- (D)
+%				(1.25,0) -- (E)
+%				(2,0) -- (2.5,0)
+%				(D) to[open, v^=$v(t)$] (E);
+%				\draw [-latex] (B) -- (A);	
+				\begin{scope}[]
+					\draw [-latex] (\xshift-0.5,\yshift) -- (\xshift+3,\yshift);
+					\draw [-latex] (\xshift,\yshift-0.5) -- (\xshift,\yshift+2);
+					\draw node[] (F) at (\xshift+3,\yshift-0.5) {$t$};
+					\draw node[] (G) at (\xshift-0.5,\yshift+2) {$v(t)$};
+					\draw node[] (H) at (\xshift+1.5,\yshift-0.5) {$t_0$};
+					\draw [color=red] (\xshift-0.5,\yshift) -- (\xshift+1.5,\yshift);
+					\draw [color=red] (\xshift+1.5,\yshift) -- (\xshift+1.5,\yshift+1);
+					\draw [color=red] (\xshift+1.5,\yshift+1) -- (\xshift+3,\yshift+1);
+					\draw [dotted] (\xshift,\yshift+1) -- (\xshift+1.5,\yshift+1);
+					\draw node[] (I) at (\xshift-0.5,\yshift+1) {$V_0$};
+				\end{scope}				
+			\end{circuitikz}
+		\end{center}
+		\begin{block}{Função degrau deslocada}
+			\begin{equation}\label{key}
+			v(t) = \left\{ \begin{array}{l}
+			0,~t < {t_0}\\
+			V_0,~t > {t_0}
+			\end{array} \right.
+			\end{equation}
+			Ou, utilizando a função degrau deslocada:
+			\begin{equation}\label{key}
+			v(t) = {V_0}{U_{ - 1}}(t - {t_0})
+			\end{equation}
+		\end{block}
+	}	
+\end{overprint}
+\end{frame}
+
+\begin{frame}
+\frametitle{Funções Singulares}
+\framesubtitle{Função Degrau}
+%	\begin{block}{Função degrau deslocada}
+%		\begin{equation}\label{key}
+%		v(t) = \left\{ \begin{array}{l}
+%		0,~t < {t_0}\\
+%		V_0,~t > {t_0}
+%		\end{array} \right.
+%		\end{equation}
+%		Ou, utilizando a função degrau deslocada:
+%		\begin{equation}\label{key}
+%		v(t) = {V_0}{U_{ - 1}}(t - {t_0})
+%		\end{equation}
+%	\end{block}
+	\begin{block}{Dica!}
+		Para verificar em que posição do eixo $x$ o degrau ocorre, basta igualar o valor dentro dos parenteses a zero. Exemplo, em $v(t) = 2{U_{ - 1}}(t - 5)$, deve-se fazer $t - 5 = 0 \Rightarrow t = 5$.
+	\end{block}	
+
+	\begin{center}
+		\begin{circuitikz} 
+			%				\draw node[] at (4, 2.5) {para $t>t_0$};
+			%				\draw
+			%				(0,2) to[V, l_=$V_0$] (0,0)
+			%				(0,2) -- (1,2)
+			%				node[circ] (A) at (1,2) {}
+			%				node[circ] (B) at (1.5,2) {}
+			%				node[circ] (C) at (1.25,1.5) {}
+			%				(1.25,1.5) -- (1.25,0)
+			%				(0,0) -- (1.25,0)
+			%				node[circ] (D) at (2.5,2) {}
+			%				node[circ] (E) at (2.5,0) {}
+			%				(B) -- (D)
+			%				(1.25,0) -- (E)
+			%				(2,0) -- (2.5,0)
+			%				(D) to[open, v^=$v(t)$] (E);
+			%				\draw [-latex] (B) -- (A);	
+			\begin{scope}[]
+				\draw [-latex] (-0.5,0) -- (+3,0);
+				\draw [-latex] (0,-0.5) -- (0,+2);
+				\draw node[] (F) at (+3,-0.5) {$t$};
+				\draw node[] (G) at (-0.5,+2) {$v(t)$};
+				\draw node[] (H) at (+1.5,-0.5) {$5$};
+				\draw [color=red] (-0.5,0) -- (+1.5,0);
+				\draw [color=red] (+1.5,0) -- (+1.5,+1);
+				\draw [color=red] (+1.5,+1) -- (+3,+1);
+				\draw [dotted] (0,+1) -- (+1.5,+1);
+				\draw node[] (I) at (-0.5,+1) {$2$};
+			\end{scope}				
+		\end{circuitikz}
+	\end{center}
+	
+
+\end{frame}
+%------------------------------------------------
+\subsection{Função Rampa}
+\begin{frame}
+\frametitle{Sumário}
+\small
+\tableofcontents[currentsubsection]
+\end{frame}
+%%-----------------------------------------------
+\begin{frame}
+\frametitle{Funções Singulares}
+\framesubtitle{Função Rampa}
+%	\begin{minipage}[b]{0.45\linewidth}
+		\begin{block}{Função rampa unitária}
+			\begin{equation}\label{key}
+			v(t) = \left\{ \begin{array}{l}
+			0,~t < 0\\
+			t,~t > 0
+			\end{array} \right.
+			\end{equation}
+			Que é denotada por:
+			\begin{equation}\label{key}
+			v(t) = {U_{ - 2}}(t)
+			\end{equation}
+			\begin{center}
+				\begin{circuitikz}	
+					\coordinate (Y) at (3.5,2);
+					\coordinate (A) at (1.5,0);
+					\coordinate (X) at (4,0);				
+					\begin{scope}[]
+						\draw [-latex] (0,0) -- (3,0);
+						\draw [-latex] (1.5,-0.5) -- (1.5,2);
+						\draw node[] (F) at (3,-0.5) {$t$};
+						\draw node[] (G) at (0.75,+2) {$U_{-2}(t)$};
+						\draw [color=red] (0,0) -- (1.5,0);
+						\draw [color=red] (1.5,0) -- (2.5,1);
+					
+						\path[clip] (A) -- (X) -- (Y);
+						\fill[red, opacity=0.2, draw=black] (A) circle (5mm);
+						\node at ($(A)+(22.5:9mm)$) {$45^\circ$};
+					\end{scope}				
+				\end{circuitikz}
+			\end{center}
+		\end{block}
+%	\end{minipage}
+%	\hfill
+%	\begin{minipage}[b]{0.45\linewidth}
+%		\begin{block}{Função rampa unitária inversa}			
+%			\begin{equation}\label{key}
+%			v(t) = \left\{ \begin{array}{l}
+%			t,~t < 0\\
+%			0,~t > 0
+%			\end{array} \right.
+%			\end{equation}
+%			Que é denotada por:
+%			\begin{equation}\label{key}
+%			v(t) = {U_{ - 2}}(-t)
+%			\end{equation}
+%			\begin{center}
+%				\begin{circuitikz}	
+%					\coordinate (Y) at (-0.5,2);
+%					\coordinate (A) at (1.5,0);
+%					\coordinate (X) at (-1.5,0);				
+%					\begin{scope}[]
+%						\draw [-latex] (0,0) -- (3,0);
+%						\draw [-latex] (1.5,-0.5) -- (1.5,2);
+%						\draw node[] (F) at (3,-0.5) {$t$};
+%						\draw node[] (G) at (0.75,+2) {$U_{-2}(-t)$};
+%						\draw [color=red] (1.5,0) -- (2.85,0);
+%						\draw [color=red] (1.5,0) -- (0.5,1);
+%						
+%						\path[clip] (A) -- (X) -- (Y);
+%						\fill[red, opacity=0.2, draw=black] (A) circle (5mm);
+%						\node at ($(A)+(157.2:9mm)$) {$45^\circ$};
+%					\end{scope}				
+%				\end{circuitikz}
+%			\end{center}
+%		\end{block}
+%	\end{minipage}
+\end{frame}
+
+\begin{frame}
+\frametitle{Funções Singulares}
+\framesubtitle{Função Rampa}
+	\begin{block}{Relação entre função rampa e função degrau}
+		Note que:
+		\begin{equation}\label{key}
+		{U_{ - 2}}(t) = \int\limits_{ - \infty }^t {{U_{ - 1}}(t)} dt
+		\end{equation}
+		Ou ainda:
+		\begin{equation}\label{key}
+		{U_{ - 1}}(t) = \frac{{d{U_{ - 2}}(t)}}{{dt}}
+		\end{equation}
+	\end{block}
+\end{frame}
+
+
+%------------------------------------------------
+\subsection{Função Impulso}
+\begin{frame}
+\frametitle{Sumário}
+\small
+\tableofcontents[currentsubsection]
+\end{frame}
+%%-----------------------------------------------
+
+%------------------------------------------------
+\begin{frame}[noframenumbering]
+	\vfill
+	\centering
+	\Huge{Thank you!}
+	\vfill
+\end{frame}
+
+\end{document}
