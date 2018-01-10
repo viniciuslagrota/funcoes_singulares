@@ -20,6 +20,11 @@
 \usepackage{multirow}
 \usepackage[siunitx, american]{circuitikz}
 
+\uselanguage{portuguese}
+\languagepath{portuguese}
+\deftranslation[to=portuguese]{Theorem}{Teorema}
+\deftranslation[to=portuguese]{theorem}{teorema}
+
 \definecolor{green_variavel}{rgb}{0.13,0.57,0.2}
 \usecolortheme[named=green_variavel]{structure}
 
@@ -52,6 +57,104 @@
 \tableofcontents
 \end{frame}
 
+%------------------------------------------------------------------------------------
+\section{Recapitulação}
+%------------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Recapitulação}
+	\begin{block}{Resistores}
+			\begin{minipage}[b]{0.4\linewidth}
+				\begin{center}
+					\begin{circuitikz}[european voltages]
+						%				\draw (0,0) to [I, l^=$i(t)$] (0,2);
+						\draw [-latex] (0.6, 1.85) -- (1.25, 1.85);
+						\draw node[] at (0.25, 1.75) {$i(t)$};
+						\draw (0,2) -- (1.5,2);
+						\draw (0,0) -- (1.5,0);
+						\draw (1.5,0) to [R, l^= $R$, v_=$e(t)$] (1.5,2);
+					\end{circuitikz}
+				\end{center}
+			\end{minipage}
+			\begin{minipage}[b]{0.4\linewidth}
+				\vfill
+				\begin{equation}\label{key}
+				e(t) = Ri(t)
+				\end{equation}
+				\vfill
+				\begin{equation}\label{key}
+				i(t) = \frac{1}{R}e(t)
+				\end{equation}
+				\vfill
+			\end{minipage}
+	\end{block}
+	\begin{minipage}[b]{0.2\linewidth}
+		\begin{center}
+			\begin{circuitikz}[european voltages]
+%				\draw (0,0) to [I, l^=$i(t)$] (0,2);
+				\draw [-latex] (0.6, 1.85) -- (1.25, 1.85);
+				\draw node[] at (0.25, 1.75) {$i(t)$};
+				\draw (0,2) -- (1.5,2);
+				\draw (0,0) -- (1.5,0);
+				\draw (1.5,0) to [R, l^= $R$, v_=$e(t)$] (1.5,2);
+			\end{circuitikz}
+		\end{center}
+	\end{minipage}
+	\begin{minipage}[b]{0.7\linewidth}
+		\begin{equation}\label{key}
+			e(t) = Ri(t)
+		\end{equation}
+		\begin{equation}\label{key}
+			i(t) = \frac{1}{R}e(t)
+		\end{equation}
+	\end{minipage}
+
+	\begin{minipage}[b]{0.2\linewidth}
+		\begin{center}
+			\begin{circuitikz}[european voltages]
+				%\draw (0,0) to [I, l^=$i(t)$] (0,2);
+				\draw [-latex] (0.6, 1.85) -- (1.25, 1.85);
+				\draw node[] at (0.25, 1.75) {$i(t)$};
+				\draw (0,2) -- (1.5,2);
+				\draw (0,0) -- (1.5,0);
+				\draw (1.5,0) to [C, l^= $C$, v_=$e(t)$] (1.5,2);
+			\end{circuitikz}
+		\end{center}
+	\end{minipage}
+	\begin{minipage}[b]{0.7\linewidth}
+		\begin{equation}\label{key}
+		{e}(t) = \frac{1}{C}\int\limits_{ - \infty }^t {i(t)dt}
+		\end{equation}
+		\begin{equation}\label{key}
+		i(t) = C\frac{de(t)}{dt}
+		\end{equation}
+	\end{minipage}
+
+	\begin{minipage}[b]{0.2\linewidth}
+		\begin{center}
+			\begin{circuitikz}[european voltages]
+				%\draw (0,0) to [I, l^=$i(t)$] (0,2);
+				\draw [-latex] (0.6, 1.85) -- (1.25, 1.85);
+				\draw node[] at (0.25, 1.75) {$i(t)$};
+				\draw (0,2) -- (1.5,2);
+				\draw (0,0) -- (1.5,0);
+				\draw (1.5,0) to [L, l^= $L$, v_=$e(t)$] (1.5,2);
+			\end{circuitikz}
+		\end{center}
+	\end{minipage}
+	\begin{minipage}[b]{0.7\linewidth}
+		\begin{equation}\label{key}
+		e(t) = L\frac{{di(t)}}{{dt}}
+		\end{equation}
+		\begin{equation}\label{key}
+		i(t) = \frac{1}{L}\int\limits_{ - \infty }^t {e(t)dt}
+		\end{equation}
+	\end{minipage}
+\end{frame}
+
+\begin{frame}
+\frametitle{Recapitulação}
+	Energia armazenada -> pag. 133.
+\end{frame}
 %------------------------------------------------------------------------------------
 \section{Funções Singulares}
 %------------------------------------------------------------------------------------
@@ -338,9 +441,10 @@
 \begin{frame}
 \frametitle{Funções Singulares}
 \framesubtitle{Função Rampa}
-%	\begin{minipage}[b]{0.45\linewidth}
+	\begin{minipage}[b]{0.45\linewidth}
 		\begin{block}{Função rampa unitária}
-			\begin{equation}\label{key}
+			\vspace{0.25cm}
+			\begin{equation}\label{key}			
 			v(t) = \left\{ \begin{array}{l}
 			0,~t < 0\\
 			t,~t > 0
@@ -370,41 +474,43 @@
 				\end{circuitikz}
 			\end{center}
 		\end{block}
-%	\end{minipage}
-%	\hfill
-%	\begin{minipage}[b]{0.45\linewidth}
-%		\begin{block}{Função rampa unitária inversa}			
-%			\begin{equation}\label{key}
-%			v(t) = \left\{ \begin{array}{l}
-%			t,~t < 0\\
-%			0,~t > 0
-%			\end{array} \right.
-%			\end{equation}
-%			Que é denotada por:
-%			\begin{equation}\label{key}
-%			v(t) = {U_{ - 2}}(-t)
-%			\end{equation}
-%			\begin{center}
-%				\begin{circuitikz}	
-%					\coordinate (Y) at (-0.5,2);
-%					\coordinate (A) at (1.5,0);
-%					\coordinate (X) at (-1.5,0);				
-%					\begin{scope}[]
-%						\draw [-latex] (0,0) -- (3,0);
-%						\draw [-latex] (1.5,-0.5) -- (1.5,2);
-%						\draw node[] (F) at (3,-0.5) {$t$};
-%						\draw node[] (G) at (0.75,+2) {$U_{-2}(-t)$};
-%						\draw [color=red] (1.5,0) -- (2.85,0);
-%						\draw [color=red] (1.5,0) -- (0.5,1);
-%						
-%						\path[clip] (A) -- (X) -- (Y);
-%						\fill[red, opacity=0.2, draw=black] (A) circle (5mm);
-%						\node at ($(A)+(157.2:9mm)$) {$45^\circ$};
-%					\end{scope}				
-%				\end{circuitikz}
-%			\end{center}
-%		\end{block}
-%	\end{minipage}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[b]{0.45\linewidth}
+		\begin{block}{Função rampa genérica}
+			\begin{equation}\label{key}
+			v(t) = \left\{ \begin{array}{l}
+			0,~t < t_0\\
+			At,~t > t_0
+			\end{array} \right.
+			\end{equation}
+			Que é denotada por:
+			\begin{equation}\label{key}
+			v(t) = A{U_{ - 2}}(t-t_0)
+			\end{equation}
+			\begin{center}
+				\begin{circuitikz}	
+					\coordinate (Y) at (3.5,2);
+					\coordinate (A) at (1.5,0);
+					\coordinate (X) at (4,0);				
+					\begin{scope}[]
+						\draw [-latex] (0.5,0) -- (3,0);
+						\draw [-latex] (1,-0.5) -- (1,1.5);
+						\draw node[] (F) at (3,-0.5) {$t$};
+						\draw node[] (G) at (0.5,1.5) {$v(t)$};
+						\draw [color=red] (0.5,0) -- (1.5,0);
+						\draw [color=red] (1.5,0) -- (2.5,1);
+						\draw node[] (F) at (1.5,-0.5) {$t_0$};
+						\draw node[] (F) at (2.5,1.5) {$tg(\alpha)=A$};
+						
+						\path[clip] (A) -- (X) -- (Y);
+						\fill[red, opacity=0.2, draw=black] (A) circle (5mm);
+						\node at ($(A)+(22.5:9mm)$) {$\alpha$};
+					\end{scope}				
+				\end{circuitikz}
+			\end{center}
+		\end{block}
+	\end{minipage}
 \end{frame}
 
 \begin{frame}
@@ -430,8 +536,228 @@
 \small
 \tableofcontents[currentsubsection]
 \end{frame}
+
+\begin{frame}
+\frametitle{Funções Singulares}
+\framesubtitle{Função Impulso}
+\begin{minipage}[b]{0.45\linewidth}
+	\begin{block}{Função impulso unitário}
+		\vspace{0.5cm}
+		\begin{equation}\label{key}			
+		v(t) = \left\{ \begin{array}{l}
+		0,~t \neq 0\\
+		1,~t = 0
+		\end{array} \right.
+		\end{equation}
+		Que é denotada por:
+		\begin{equation}\label{key}
+		v(t) = {U_0}(t)
+		\end{equation}
+		\begin{center}
+			\begin{circuitikz}									
+				\begin{scope}[]
+					\draw [-latex] (0,0) -- (3,0);
+					\draw [-latex] (1.5,-0.5) -- (1.5,1.5);
+					\draw node[] (F) at (3,-0.5) {$t$};
+					\draw node[] (G) at (0.75,1.5) {$U_{0}(t)$};
+					\draw [color=red] (0,0) -- (2.85,0);
+					\draw [-latex, color=red] (1.5,0) -- (1.5,1);
+					\draw node[] (G) at (1.25,1) {$1$};
+				\end{scope}				
+			\end{circuitikz}
+		\end{center}
+	\end{block}
+\end{minipage}
+\hfill
+\begin{minipage}[b]{0.45\linewidth}
+	\begin{block}{Função impulso genérico}
+		%		\vspace{0.25cm}
+		\begin{equation}\label{key}			
+		v(t) = \left\{ \begin{array}{l}
+		0,~t \neq t_0\\
+		A,~t = t_0
+		\end{array} \right.
+		\end{equation}
+		Que é denotada por:
+		\begin{equation}\label{key}
+		v(t) = A{U_0}(t-t_0)
+		\end{equation}
+		\begin{center}
+			\begin{circuitikz}									
+				\begin{scope}[]
+					\draw [-latex] (0,0) -- (3,0);
+					\draw [-latex] (1,-0.5) -- (1,1.5);
+					\draw node[] (F) at (3,-0.5) {$t$};
+					\draw node[] (G) at (-0.25,1.5) {$AU_{0}(t-t_0)$};
+					\draw [color=red] (0,0) -- (2.85,0);
+					\draw [-latex, color=red] (2,0) -- (2,1);
+					\draw node[] (G) at (0.75,1) {$A$};
+					\draw [dotted] (1,1) -- (2,1);
+					\draw node[] (F) at (2,-0.5) {$t_0$};
+				\end{scope}				
+			\end{circuitikz}
+		\end{center}
+	\end{block}
+\end{minipage}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Funções Singulares}
+	\framesubtitle{Função Rampa}
+	\begin{block}{Relação entre função degrau e função impulso}
+		Note que:
+		\begin{equation}\label{key}
+		{U_{ - 1}}(t) = \int\limits_{ - \infty }^t {{U_{0}}(t)} dt
+		\end{equation}
+		Ou ainda:
+		\begin{equation}\label{key}
+		{U_{0}}(t) = \frac{{d{U_{ - 1}}(t)}}{{dt}}
+		\end{equation}
+	\end{block}
+\end{frame}
 %%-----------------------------------------------
 
+
+%------------------------------------------------
+\section{Resposta às Funções Singulares}
+\begin{frame}
+\frametitle{Sumário}
+\small
+\tableofcontents[currentsection]
+\end{frame}
+
+\begin{frame}
+\frametitle{Resposta às Funções Singulares}
+	\begin{theorem}
+		Se todas as correntes e tensões permanecerem finitas, a tensão nos terminais de uma capacitância e a corrente passando por uma indutância não podem alterar instantaneamente.
+	\end{theorem}
+	\begin{itemize}
+		\item Tal teorema é válido para circuitos elétricos excitados pelas funções \textbf{degrau} e \textbf{rampa}.
+		\item A adição de uma função \textbf{impulso} faz com que considerações adicionais sejam observadas.
+	\end{itemize}
+	\begin{theorem}
+		Um impulso unitário de corrente entrando em uma capacitância descarregada altera a sua tensão de $\frac{1}{C}V$ e a energia de $\frac{1}{2C}J$ instantaneamente.
+	\end{theorem}
+\end{frame}
+
+\begin{frame}
+\frametitle{Resposta às Funções Singulares}
+\newcommand{\xshift}{4}
+\newcommand{\yshift}{0.3}
+\begin{overprint}
+	\only<1>
+	{
+		\begin{theorem}[Demonstração]
+			\begin{center}
+				\begin{circuitikz}[european voltages]
+					\draw (0,0) to [I, l^=$U_0(t)~A$] (0,2);
+					\draw (0,2) -- (2,2);
+					\draw (0,0) -- (2,0);
+					\draw (2,0) to [C, l^= $C$, v_=$e_c(t)$] (2,2);
+					\begin{scope}[]
+						\draw [-latex] (0+\xshift,0+\yshift) -- (3+\xshift,0+\yshift);
+						\draw [-latex] (1.5+\xshift,-0.2+\yshift) -- (1.5+\xshift,1.5+\yshift);
+						\draw node[] (F) at (3+\xshift,0.25+\yshift) {$t$};
+						\draw node[] (G) at (0.75+\xshift,1.5+\yshift) {$U_{0}(t)$};
+						\draw [color=red] (0+\xshift,0+\yshift) -- (2.85+\xshift,0+\yshift);
+						\draw [-latex, color=red] (1.5+\xshift,0+\yshift) -- (1.5+\xshift,1+\yshift);
+						\draw node[] (G) at (1.25+\xshift,1+\yshift) {$1$};
+					\end{scope}
+				\end{circuitikz}
+			\end{center}
+			\begin{align}\label{key}
+			{e_c}(t) = \frac{1}{C}\int\limits_{ - \infty }^t {i(t)dt = } \frac{1}{C}\int\limits_{ - \infty }^{{0^ - }} {{U_0}(t)dt + } \frac{1}{C}\int\limits_{{0^ - }}^{{0^ + }} {{U_0}(t)dt + } \frac{1}{C}\int\limits_{{0^ + }}^t {{U_0}(t)dt} 
+			\end{align}
+		\end{theorem}
+	}
+	\only<2>
+	{
+		\begin{theorem}[Demonstração]
+			\begin{center}
+				\begin{circuitikz}[european voltages]
+					\draw (0,0) to [I, l^=$U_0(t)~A$] (0,2);
+					\draw (0,2) -- (2,2);
+					\draw (0,0) -- (2,0);
+					\draw (2,0) to [C, l^= $C$, v_=$e_c(t)$] (2,2);
+					\begin{scope}[]
+						\draw [-latex] (0+\xshift,0+\yshift) -- (3+\xshift,0+\yshift);
+						\draw [-latex] (1.5+\xshift,-0.2+\yshift) -- (1.5+\xshift,1.5+\yshift);
+						\draw node[] (F) at (3+\xshift,0.25+\yshift) {$t$};
+						\draw node[] (G) at (0.75+\xshift,1.5+\yshift) {$U_{0}(t)$};
+						\draw [color=red] (0+\xshift,0+\yshift) -- (2.85+\xshift,0+\yshift);
+						\draw [-latex, color=red] (1.5+\xshift,0+\yshift) -- (1.5+\xshift,1+\yshift);
+						\draw node[] (G) at (1.25+\xshift,1+\yshift) {$1$};
+					\end{scope}
+				\end{circuitikz}
+			\end{center}			
+			\begin{align}\label{key}
+			{e_c}(t) = \frac{1}{C}\int\limits_{ - \infty }^t {i(t)dt = } \frac{1}{C}\int\limits_{ - \infty }^{{0^ - }} {{U_0}(t)dt + } \frac{1}{C}\int\limits_{{0^ - }}^{{0^ + }} {{U_0}(t)dt + } \textcolor{red}{\frac{1}{C}\int\limits_{{0^ + }}^t {{U_0}(t)dt}} 
+			\end{align}
+			\textcolor{red}{Componente nula, já que o impulso ocorreu anteriormente.}
+		\end{theorem}	
+	}
+	\only<3>
+	{
+		\begin{theorem}[Demonstração]
+			\begin{center}
+				\begin{circuitikz}[european voltages]
+					\draw (0,0) to [I, l^=$U_0(t)~A$] (0,2);
+					\draw (0,2) -- (2,2);
+					\draw (0,0) -- (2,0);
+					\draw (2,0) to [C, l^= $C$, v_=$e_c(t)$] (2,2);
+					\begin{scope}[]
+						\draw [-latex] (0+\xshift,0+\yshift) -- (3+\xshift,0+\yshift);
+						\draw [-latex] (1.5+\xshift,-0.2+\yshift) -- (1.5+\xshift,1.5+\yshift);
+						\draw node[] (F) at (3+\xshift,0.25+\yshift) {$t$};
+						\draw node[] (G) at (0.75+\xshift,1.5+\yshift) {$U_{0}(t)$};
+						\draw [color=red] (0+\xshift,0+\yshift) -- (2.85+\xshift,0+\yshift);
+						\draw [-latex, color=red] (1.5+\xshift,0+\yshift) -- (1.5+\xshift,1+\yshift);
+						\draw node[] (G) at (1.25+\xshift,1+\yshift) {$1$};
+					\end{scope}
+				\end{circuitikz}
+			\end{center}			
+			\begin{align}\label{key}
+			{e_c}(t) = \frac{1}{C}\int\limits_{ - \infty }^t {i(t)dt = } \textcolor{red}{\frac{1}{C}\int\limits_{ - \infty }^{{0^ - }}
+			{{U_0}(t)dt}} + \frac{1}{C}\int\limits_{{0^ - }}^{{0^ + }} {{U_0}(t)dt + }  
+			0
+			\end{align}
+			\textcolor{red}{Componente que representa a energia inicial armazenada do capacitor. Componente nula se o capacitor for considerado inicialmente descarregado.}
+		\end{theorem}	
+	}
+	\only<4>
+	{
+		\begin{theorem}[Demonstração]
+			\begin{center}
+				\begin{circuitikz}[european voltages]
+					\draw (0,0) to [I, l^=$U_0(t)~A$] (0,2);
+					\draw (0,2) -- (2,2);
+					\draw (0,0) -- (2,0);
+					\draw (2,0) to [C, l^= $C$, v_=$e_c(t)$] (2,2);
+					\begin{scope}[]
+						\draw [-latex] (0+\xshift,0+\yshift) -- (3+\xshift,0+\yshift);
+						\draw [-latex] (1.5+\xshift,-0.2+\yshift) -- (1.5+\xshift,1.5+\yshift);
+						\draw node[] (F) at (3+\xshift,0.25+\yshift) {$t$};
+						\draw node[] (G) at (0.75+\xshift,1.5+\yshift) {$U_{0}(t)$};
+						\draw [color=red] (0+\xshift,0+\yshift) -- (2.85+\xshift,0+\yshift);
+						\draw [-latex, color=red] (1.5+\xshift,0+\yshift) -- (1.5+\xshift,1+\yshift);
+						\draw node[] (G) at (1.25+\xshift,1+\yshift) {$1$};
+					\end{scope}
+				\end{circuitikz}
+			\end{center}			
+			\begin{equation}\label{key}
+			{e_c}(t) = \frac{1}{C}\int\limits_{ - \infty }^t {i(t)dt = } 0 + \frac{1}{C}\int\limits_{{0^ - }}^{{0^ + }} {{U_0}(t)dt + } 0 = \frac{1}{C}{U_{ - 1}}(t) = 
+			\textcolor{red}{\frac{1}{C}~V}
+			\end{equation}
+			e
+			\begin{equation}\label{key}
+			W(t) = \frac{1}{2}Ce_c^2(t) = \frac{1}{2}C{\left( {\frac{1}{C}{U_{ - 1}}(t)} \right)^2} = \frac{1}{{2C}}{U_{ - 1}}(t)
+			= \textcolor{red}{\frac{1}{{2C}}~J}
+			\end{equation}
+			\textcolor{red}{Para $t>0$.}
+		\end{theorem}			
+	}
+\end{overprint}
+\end{frame}
 %------------------------------------------------
 \begin{frame}[noframenumbering]
 	\vfill

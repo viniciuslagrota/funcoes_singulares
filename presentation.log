@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=latex 2017.12.11)  9 JAN 2018 22:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=latex 2017.12.11)  10 JAN 2018 17:12
 entering extended mode
 **./presentation.tex
 (presentation.tex
@@ -1659,23 +1659,74 @@ LaTeX Warning: Label `key' multiply defined.
 
 LaTeX Warning: Label `key' multiply defined.
 
+
+LaTeX Warning: Label `key' multiply defined.
+
+
+LaTeX Warning: Label `key' multiply defined.
+
+
+LaTeX Warning: Label `key' multiply defined.
+
+
+LaTeX Warning: Label `key' multiply defined.
+
+
+LaTeX Warning: Label `key' multiply defined.
+
+
+LaTeX Warning: Label `key' multiply defined.
+
+
+LaTeX Warning: Label `key' multiply defined.
+
+
+LaTeX Warning: Label `key' multiply defined.
+
+
+LaTeX Warning: Label `key' multiply defined.
+
+
+LaTeX Warning: Label `key' multiply defined.
+
+
+LaTeX Warning: Label `key' multiply defined.
+
+
+LaTeX Warning: Label `key' multiply defined.
+
+
+LaTeX Warning: Label `key' multiply defined.
+
+
+LaTeX Warning: Label `key' multiply defined.
+
+
+LaTeX Warning: Label `key' multiply defined.
+
+
+LaTeX Warning: Label `key' multiply defined.
+
+
+LaTeX Warning: Label `key' multiply defined.
+
 )
 \openout1 = `presentation.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: dvips
@@ -1713,7 +1764,7 @@ LaTeX Font Info:    ... okay on input line 44.
 
 ABD: EveryShipout initializing macros
 \AtBeginShipoutBox=\box89
-Package hyperref Info: Link coloring OFF on input line 44.
+Package hyperref Info: Link coloring OFF on input line 49.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -1723,9 +1774,9 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count369
 )
-LaTeX Info: Redefining \ref on input line 44.
-LaTeX Info: Redefining \pageref on input line 44.
-LaTeX Info: Redefining \nameref on input line 44.
+LaTeX Info: Redefining \ref on input line 49.
+LaTeX Info: Redefining \pageref on input line 49.
+LaTeX Info: Redefining \nameref on input line 49.
 
 (presentation.out) (presentation.out)
 \@outlinefile=\write7
@@ -1736,25 +1787,49 @@ LaTeX Info: Redefining \nameref on input line 44.
 English.dict"
 Dictionary: translator-basic-dictionary, Language: English 
 )
+("C:\Program Files\MiKTeX 2.9\tex\latex\translator\translator-basic-dictionary-
+portuguese.dict"
+Dictionary: translator-basic-dictionary, Language: portuguese 
+)
 ("C:\Program Files\MiKTeX 2.9\tex\latex\translator\translator-bibliography-dict
 ionary-English.dict"
 Dictionary: translator-bibliography-dictionary, Language: English 
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\translator\translator-bibliography-dict
+ionary-portuguese.dict"
+Dictionary: translator-bibliography-dictionary, Language: portuguese 
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\translator\translator-environment-dicti
 onary-English.dict"
 Dictionary: translator-environment-dictionary, Language: English 
 )
+("C:\Program Files\MiKTeX 2.9\tex\latex\translator\translator-environment-dicti
+onary-portuguese.dict"
+Dictionary: translator-environment-dictionary, Language: Portuguese 
+)
 ("C:\Program Files\MiKTeX 2.9\tex\latex\translator\translator-months-dictionary
 -English.dict"
 Dictionary: translator-months-dictionary, Language: English 
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\translator\translator-months-dictionary
+-portuguese.dict"
+Dictionary: translator-month-dictionary, Language: portuguese 
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\translator\translator-numbers-dictionar
 y-English.dict"
 Dictionary: translator-numbers-dictionary, Language: English 
 )
+("C:\Program Files\MiKTeX 2.9\tex\latex\translator\translator-numbers-dictionar
+y-portuguese.dict"
+Dictionary: translator-numbers-dictionary, Language: Portuguese 
+)
 ("C:\Program Files\MiKTeX 2.9\tex\latex\translator\translator-theorem-dictionar
 y-English.dict"
 Dictionary: translator-theorem-dictionary, Language: English 
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\translator\translator-theorem-dictionar
+y-portuguese.dict"
+Dictionary: translator-theorem-dictionary, Language: portuguese 
 )
 \c@lstlisting=\count370
 Package caption Info: Begin \AtBeginDocument code.
@@ -1839,16 +1914,16 @@ File: siunitx-abbreviations.cfg 2017/11/26 v2.7k siunitx: Abbreviated units
 )
 (presentation.nav)
 \c__siunitx_mathsf_int=\count371
-LaTeX Font Info:    Try loading font information for U+msa on input line 44.
+LaTeX Font Info:    Try loading font information for U+msa on input line 49.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 44.
+LaTeX Font Info:    Try loading font information for U+msb on input line 49.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+rsfs on input line 44.
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 49.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\jknappen\ursfs.fd"
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
@@ -1859,35 +1934,79 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 ]
 (presentation.toc) [2
 
-] [3
+]
+Overfull \hbox (9.82695pt too wide) in paragraph at lines 152--152
+ [] 
+ []
 
-] (presentation.toc) [4
+
+Overfull \hbox (19.02863pt too wide) in paragraph at lines 152--152
+ [] 
+ []
+
+
+Overfull \hbox (3.69266pt too wide) in paragraph at lines 152--152
+ [] 
+ []
+
+
+Overfull \vbox (86.74463pt too high) detected at line 152
+ []
+
+[3
+
+] [4
 
 ] [5
 
-] [6
+] (presentation.toc) [6
 
 ] [7
 
 ] [8
 
-]
-Overfull \vbox (1.02367pt too high) detected at line 274
- []
-
-[9
+] [9
 
 ] [10
 
-] (presentation.toc) [11
+]
+Overfull \vbox (1.02367pt too high) detected at line 377
+ []
+
+[11
 
 ] [12
 
-] [13
+] (presentation.toc) [13
 
-] (presentation.toc) [14
+] [14
 
 ] [15
+
+] (presentation.toc) [16
+
+] [17
+
+]
+[18
+
+] (presentation.toc) [19
+
+] [20
+
+] [21
+
+] [22
+
+] [23
+
+]
+Overfull \vbox (7.36356pt too high) detected at line 760
+ []
+
+[24
+
+] [25
 
 ]
 \tf@nav=\write8
@@ -1899,26 +2018,25 @@ Overfull \vbox (1.02367pt too high) detected at line 274
 \tf@snm=\write10
 \openout10 = `presentation.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 443.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 443.
-
-(presentation.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 443.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 443.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 769.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 769.
+ (presentation.aux)
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 769.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 769.
 Package rerunfilecheck Info: File `presentation.out' has not changed.
-(rerunfilecheck)             Checksum: 58FD703792FE4424A33D68767DF4EB63;269.
+(rerunfilecheck)             Checksum: A1B7AB27CA787BDFB9CD0CAF3B1907E0;399.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 41850 strings out of 493313
- 907144 string characters out of 3138915
- 1052068 words of memory out of 3000000
- 44734 multiletter control sequences out of 15000+200000
- 545794 words of font info for 65 fonts, out of 3000000 for 9000
+ 42571 strings out of 493313
+ 926099 string characters out of 3138915
+ 1079171 words of memory out of 3000000
+ 45434 multiletter control sequences out of 15000+200000
+ 546621 words of font info for 66 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 53i,16n,92p,10369b,989s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 53i,16n,92p,10369b,1301s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on presentation.dvi (15 pages, 227720 bytes).
+Output written on presentation.dvi (25 pages, 436920 bytes).
