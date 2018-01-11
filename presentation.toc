@@ -1,7 +1,8 @@
 \select@language {portuguese}
 \beamer@sectionintoc {1}{Recapitula\IeC {\c c}\IeC {\~a}o}{3}{0}{1}
 \beamer@sectionintoc {2}{Fun\IeC {\c c}\IeC {\~o}es Singulares}{5}{0}{2}
-\beamer@subsectionintoc {2}{1}{Fun\IeC {\c c}\IeC {\~a}o Degrau}{6}{0}{2}
-\beamer@subsectionintoc {2}{2}{Fun\IeC {\c c}\IeC {\~a}o Rampa}{13}{0}{2}
-\beamer@subsectionintoc {2}{3}{Fun\IeC {\c c}\IeC {\~a}o Impulso}{16}{0}{2}
-\beamer@sectionintoc {3}{Resposta \IeC {\`a}s Fun\IeC {\c c}\IeC {\~o}es Singulares}{19}{0}{3}
+\beamer@subsectionintoc {2}{1}{Fun\IeC {\c c}\IeC {\~a}o Degrau}{7}{0}{2}
+\beamer@subsectionintoc {2}{2}{Fun\IeC {\c c}\IeC {\~a}o Rampa}{14}{0}{2}
+\beamer@subsectionintoc {2}{3}{Fun\IeC {\c c}\IeC {\~a}o Impulso}{17}{0}{2}
+\beamer@sectionintoc {3}{Resposta \IeC {\`a}s Fun\IeC {\c c}\IeC {\~o}es Singulares}{20}{0}{3}
+\beamer@sectionintoc {4}{Decomposi\IeC {\c c}\IeC {\~a}o de Sinais em Fun\IeC {\c c}\IeC {\~o}es Singulares}{26}{0}{4}

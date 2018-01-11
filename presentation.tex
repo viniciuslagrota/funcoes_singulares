@@ -1,4 +1,4 @@
-\documentclass[mathserif]{beamer}
+\documentclass[mathserif,usenames,dvipsnames]{beamer}
 
 %\usetheme{LCOM}
 \usetheme{Madrid}
@@ -28,6 +28,9 @@
 \definecolor{green_variavel}{rgb}{0.13,0.57,0.2}
 \usecolortheme[named=green_variavel]{structure}
 
+%\definecolor{red_variavel}{rgb}{0.5,0,0}
+%\usecolortheme[named=red_variavel]{structure}
+
 \newcommand{\wait}{\vfill}
 %\newcommand{\wait}{\pause}
 	
@@ -43,7 +46,8 @@
 
 \title[Funções Singulares]{Funções Singulares e suas aplicações} 
 \author[Vinícius Lagrota]{Vinícius Lagrota Rodrigues da Costa}
-\institute[CES]{Centro de Ensino Superior de Juiz de Fora}
+\institute[CES]{\includegraphics[width=0.3\textwidth]{figuras/ces}\\[\medskipamount]
+	Centro de Ensino Superior de Juiz de Fora}
 \date{\today}
 
 \begin{document}
@@ -62,53 +66,35 @@
 %------------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Recapitulação}
+\framesubtitle{Resistores, capacitores e indutores}
+\begin{minipage}[b]{0.3\linewidth}
 	\begin{block}{Resistores}
-			\begin{minipage}[b]{0.4\linewidth}
-				\begin{center}
-					\begin{circuitikz}[european voltages]
-						%				\draw (0,0) to [I, l^=$i(t)$] (0,2);
-						\draw [-latex] (0.6, 1.85) -- (1.25, 1.85);
-						\draw node[] at (0.25, 1.75) {$i(t)$};
-						\draw (0,2) -- (1.5,2);
-						\draw (0,0) -- (1.5,0);
-						\draw (1.5,0) to [R, l^= $R$, v_=$e(t)$] (1.5,2);
-					\end{circuitikz}
-				\end{center}
-			\end{minipage}
-			\begin{minipage}[b]{0.4\linewidth}
-				\vfill
-				\begin{equation}\label{key}
-				e(t) = Ri(t)
-				\end{equation}
-				\vfill
-				\begin{equation}\label{key}
-				i(t) = \frac{1}{R}e(t)
-				\end{equation}
-				\vfill
-			\end{minipage}
+		\begin{center}
+			\begin{circuitikz}[european voltages]
+				%				\draw (0,0) to [I, l^=$i(t)$] (0,2);
+				\draw [-latex] (0.6, 1.85) -- (1.25, 1.85);
+				\draw node[] at (0.25, 1.75) {$i(t)$};
+				\draw (0,2) -- (1.5,2);
+				\draw (0,0) -- (1.5,0);
+				\draw (1.5,0) to [R, l^= $R$, v_=$v(t)$] (1.5,2);
+			\end{circuitikz}
+		\end{center}
+%			\end{minipage}
+%			\begin{minipage}[b]{0.33\linewidth}
+		\vfill
+		\begin{equation*}\label{key}
+		v(t) = Ri(t)
+		\end{equation*}
+		\vfill
+		\begin{equation*}\label{key}
+		i(t) = \frac{1}{R}v(t)
+		\end{equation*}
+		\vfill
 	\end{block}
-	\begin{minipage}[b]{0.2\linewidth}
-		\begin{center}
-			\begin{circuitikz}[european voltages]
-%				\draw (0,0) to [I, l^=$i(t)$] (0,2);
-				\draw [-latex] (0.6, 1.85) -- (1.25, 1.85);
-				\draw node[] at (0.25, 1.75) {$i(t)$};
-				\draw (0,2) -- (1.5,2);
-				\draw (0,0) -- (1.5,0);
-				\draw (1.5,0) to [R, l^= $R$, v_=$e(t)$] (1.5,2);
-			\end{circuitikz}
-		\end{center}
-	\end{minipage}
-	\begin{minipage}[b]{0.7\linewidth}
-		\begin{equation}\label{key}
-			e(t) = Ri(t)
-		\end{equation}
-		\begin{equation}\label{key}
-			i(t) = \frac{1}{R}e(t)
-		\end{equation}
-	\end{minipage}
-
-	\begin{minipage}[b]{0.2\linewidth}
+\end{minipage}
+\hfill
+\begin{minipage}[b]{0.3\linewidth}
+	\begin{block}{Capacitores}
 		\begin{center}
 			\begin{circuitikz}[european voltages]
 				%\draw (0,0) to [I, l^=$i(t)$] (0,2);
@@ -116,20 +102,23 @@
 				\draw node[] at (0.25, 1.75) {$i(t)$};
 				\draw (0,2) -- (1.5,2);
 				\draw (0,0) -- (1.5,0);
-				\draw (1.5,0) to [C, l^= $C$, v_=$e(t)$] (1.5,2);
+				\draw (1.5,0) to [C, l^= $C$, v_=$v(t)$] (1.5,2);
 			\end{circuitikz}
 		\end{center}
-	\end{minipage}
-	\begin{minipage}[b]{0.7\linewidth}
-		\begin{equation}\label{key}
-		{e}(t) = \frac{1}{C}\int\limits_{ - \infty }^t {i(t)dt}
-		\end{equation}
-		\begin{equation}\label{key}
-		i(t) = C\frac{de(t)}{dt}
-		\end{equation}
-	\end{minipage}
-
-	\begin{minipage}[b]{0.2\linewidth}
+	%	\end{minipage}
+	%	\begin{minipage}[b]{0.7\linewidth}
+		\begin{equation*}\label{key}
+		v(t) = \frac{1}{C}\int\limits_{ - \infty }^t {i(t)dt}
+		\end{equation*}
+		\begin{equation*}\label{key}
+		i(t) = C\frac{dv(t)}{dt}
+		\end{equation*}
+		\vfill
+	\end{block}
+\end{minipage}
+\hfill
+\begin{minipage}[b]{0.3\linewidth}
+	\begin{block}{Indutores}
 		\begin{center}
 			\begin{circuitikz}[european voltages]
 				%\draw (0,0) to [I, l^=$i(t)$] (0,2);
@@ -137,33 +126,76 @@
 				\draw node[] at (0.25, 1.75) {$i(t)$};
 				\draw (0,2) -- (1.5,2);
 				\draw (0,0) -- (1.5,0);
-				\draw (1.5,0) to [L, l^= $L$, v_=$e(t)$] (1.5,2);
+				\draw (1.5,0) to [L, l^= $L$, v_=$v(t)$] (1.5,2);
 			\end{circuitikz}
 		\end{center}
-	\end{minipage}
-	\begin{minipage}[b]{0.7\linewidth}
-		\begin{equation}\label{key}
-		e(t) = L\frac{{di(t)}}{{dt}}
-		\end{equation}
-		\begin{equation}\label{key}
-		i(t) = \frac{1}{L}\int\limits_{ - \infty }^t {e(t)dt}
-		\end{equation}
-	\end{minipage}
+%	\end{minipage}
+%	\begin{minipage}[b]{0.7\linewidth}
+		\begin{equation*}\label{key}
+		v(t) = L\frac{{di(t)}}{{dt}}
+		\end{equation*}
+		\begin{equation*}\label{key}
+		i(t) = \frac{1}{L}\int\limits_{ - \infty }^t {v(t)dt}
+		\end{equation*}
+		\vfill
+	\end{block}
+\end{minipage}
 \end{frame}
 
 \begin{frame}
 \frametitle{Recapitulação}
-	Energia armazenada -> pag. 133.
+\framesubtitle{Energia armazenada no capacitor e indutor}
+	\begin{minipage}[b]{0.47\linewidth}
+		\begin{block}{Energia armazenada no capacitor}
+			\begin{equation*}\label{key}
+				\left\{ \begin{array}{l}
+				p(t) = v(t)i(t) = v(t)C\frac{{dv(t)}}{{dt}}\\
+				w(t) = \int\limits_{ - \infty }^t {p(t)dt} 
+				\end{array} \right.
+			\end{equation*}		
+			Logo,
+			\begin{equation*}\label{key}
+				w(t) = C\int\limits_{ - \infty }^t {v(t)\frac{{dv(t)}}{{dt}}dt} 
+			\end{equation*}
+			\begin{equation*}\label{key}
+				w(t) = C\int\limits_{ - \infty }^t {v(t)dv(t)} = \frac{1}{2}C{v^2}(t)
+			\end{equation*}
+		\end{block}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[b]{0.47\linewidth}
+		\begin{block}{Energia armazenada no indutor}
+			\begin{equation*}\label{key}
+			\left\{ \begin{array}{l}
+			p(t) = v(t)i(t) = i(t)L\frac{{di(t)}}{{dt}}\\
+			w(t) = \int\limits_{ - \infty }^t {p(t)dt} 
+			\end{array} \right.
+			\end{equation*}		
+			Logo,
+			\begin{equation*}\label{key}
+			w(t) = L\int\limits_{ - \infty }^t {i(t)\frac{{di(t)}}{{dt}}dt} 
+			\end{equation*}
+			\begin{equation*}\label{key}
+			w(t) = L\int\limits_{ - \infty }^t {i(t)di(t)} = \frac{1}{2}L{i^2}(t)
+			\end{equation*}
+		\end{block}
+	\end{minipage}
+	
 \end{frame}
 %------------------------------------------------------------------------------------
 \section{Funções Singulares}
+	\begin{frame}
+	\frametitle{Sumário}
+	\small
+	\tableofcontents[currentsection]
+\end{frame}
 %------------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Funções Singulares}
 \begin{itemize}
-	\item Utilizados para representarem sinais em circuitos com operações chaveadas.
-	\item Auxiliam na descrição de alguns fenômenos que ocorrem na análise de transitórios.
-	\item Por definição, são funções descontínuas ou que possuem derivadas descontínuas.
+	\item Utilizados para representarem sinais em circuitos com \textbf{operações chaveadas}.
+	\item Auxiliam na descrição de alguns fenômenos que ocorrem na \textbf{análise de transitórios}.
+	\item Por definição, são \textbf{funções descontínuas} ou que possuem derivadas descontínuas.
 	\item Funções singulares mais importante: \textbf{degrau}, \textbf{rampa} e \textbf{impulso}. 
 \end{itemize}
 \end{frame}
@@ -199,7 +231,7 @@
 			1,~t > 0
 			\end{array} \right.
 			\end{equation}
-			Que é denotada por:
+			e é denotada por:
 			\begin{equation}\label{key}
 			v(t) = {U_{ - 1}}(t)
 			\end{equation}
@@ -228,7 +260,7 @@
 			0,~t > 0
 			\end{array} \right.
 			\end{equation}
-			Que é denotada por:
+			e é denotada por:
 			\begin{equation}\label{key}
 			v(t) = {U_{ - 1}}(-t)
 			\end{equation}
@@ -541,7 +573,7 @@
 \frametitle{Funções Singulares}
 \framesubtitle{Função Impulso}
 \begin{minipage}[b]{0.45\linewidth}
-	\begin{block}{Função impulso unitário}
+	\begin{block}{Função impulso unitária}
 		\vspace{0.5cm}
 		\begin{equation}\label{key}			
 		v(t) = \left\{ \begin{array}{l}
@@ -570,7 +602,7 @@
 \end{minipage}
 \hfill
 \begin{minipage}[b]{0.45\linewidth}
-	\begin{block}{Função impulso genérico}
+	\begin{block}{Função impulso genérica}
 		%		\vspace{0.25cm}
 		\begin{equation}\label{key}			
 		v(t) = \left\{ \begin{array}{l}
@@ -653,7 +685,7 @@
 					\draw (0,0) to [I, l^=$U_0(t)~A$] (0,2);
 					\draw (0,2) -- (2,2);
 					\draw (0,0) -- (2,0);
-					\draw (2,0) to [C, l^= $C$, v_=$e_c(t)$] (2,2);
+					\draw (2,0) to [C, l^= $C$, v_=$v_c(t)$] (2,2);
 					\begin{scope}[]
 						\draw [-latex] (0+\xshift,0+\yshift) -- (3+\xshift,0+\yshift);
 						\draw [-latex] (1.5+\xshift,-0.2+\yshift) -- (1.5+\xshift,1.5+\yshift);
@@ -666,7 +698,7 @@
 				\end{circuitikz}
 			\end{center}
 			\begin{align}\label{key}
-			{e_c}(t) = \frac{1}{C}\int\limits_{ - \infty }^t {i(t)dt = } \frac{1}{C}\int\limits_{ - \infty }^{{0^ - }} {{U_0}(t)dt + } \frac{1}{C}\int\limits_{{0^ - }}^{{0^ + }} {{U_0}(t)dt + } \frac{1}{C}\int\limits_{{0^ + }}^t {{U_0}(t)dt} 
+			{v_c}(t) = \frac{1}{C}\int\limits_{ - \infty }^t {i(t)dt = } \frac{1}{C}\int\limits_{ - \infty }^{{0^ - }} {{U_0}(t)dt + } \frac{1}{C}\int\limits_{{0^ - }}^{{0^ + }} {{U_0}(t)dt + } \frac{1}{C}\int\limits_{{0^ + }}^t {{U_0}(t)dt} 
 			\end{align}
 		\end{theorem}
 	}
@@ -678,7 +710,7 @@
 					\draw (0,0) to [I, l^=$U_0(t)~A$] (0,2);
 					\draw (0,2) -- (2,2);
 					\draw (0,0) -- (2,0);
-					\draw (2,0) to [C, l^= $C$, v_=$e_c(t)$] (2,2);
+					\draw (2,0) to [C, l^= $C$, v_=$v_c(t)$] (2,2);
 					\begin{scope}[]
 						\draw [-latex] (0+\xshift,0+\yshift) -- (3+\xshift,0+\yshift);
 						\draw [-latex] (1.5+\xshift,-0.2+\yshift) -- (1.5+\xshift,1.5+\yshift);
@@ -691,7 +723,7 @@
 				\end{circuitikz}
 			\end{center}			
 			\begin{align}\label{key}
-			{e_c}(t) = \frac{1}{C}\int\limits_{ - \infty }^t {i(t)dt = } \frac{1}{C}\int\limits_{ - \infty }^{{0^ - }} {{U_0}(t)dt + } \frac{1}{C}\int\limits_{{0^ - }}^{{0^ + }} {{U_0}(t)dt + } \textcolor{red}{\frac{1}{C}\int\limits_{{0^ + }}^t {{U_0}(t)dt}} 
+			{v_c}(t) = \frac{1}{C}\int\limits_{ - \infty }^t {i(t)dt = } \frac{1}{C}\int\limits_{ - \infty }^{{0^ - }} {{U_0}(t)dt + } \frac{1}{C}\int\limits_{{0^ - }}^{{0^ + }} {{U_0}(t)dt + } \textcolor{red}{\frac{1}{C}\int\limits_{{0^ + }}^t {{U_0}(t)dt}} 
 			\end{align}
 			\textcolor{red}{Componente nula, já que o impulso ocorreu anteriormente.}
 		\end{theorem}	
@@ -704,7 +736,7 @@
 					\draw (0,0) to [I, l^=$U_0(t)~A$] (0,2);
 					\draw (0,2) -- (2,2);
 					\draw (0,0) -- (2,0);
-					\draw (2,0) to [C, l^= $C$, v_=$e_c(t)$] (2,2);
+					\draw (2,0) to [C, l^= $C$, v_=$v_c(t)$] (2,2);
 					\begin{scope}[]
 						\draw [-latex] (0+\xshift,0+\yshift) -- (3+\xshift,0+\yshift);
 						\draw [-latex] (1.5+\xshift,-0.2+\yshift) -- (1.5+\xshift,1.5+\yshift);
@@ -717,7 +749,7 @@
 				\end{circuitikz}
 			\end{center}			
 			\begin{align}\label{key}
-			{e_c}(t) = \frac{1}{C}\int\limits_{ - \infty }^t {i(t)dt = } \textcolor{red}{\frac{1}{C}\int\limits_{ - \infty }^{{0^ - }}
+			{v_c}(t) = \frac{1}{C}\int\limits_{ - \infty }^t {i(t)dt = } \textcolor{red}{\frac{1}{C}\int\limits_{ - \infty }^{{0^ - }}
 			{{U_0}(t)dt}} + \frac{1}{C}\int\limits_{{0^ - }}^{{0^ + }} {{U_0}(t)dt + }  
 			0
 			\end{align}
@@ -732,7 +764,7 @@
 					\draw (0,0) to [I, l^=$U_0(t)~A$] (0,2);
 					\draw (0,2) -- (2,2);
 					\draw (0,0) -- (2,0);
-					\draw (2,0) to [C, l^= $C$, v_=$e_c(t)$] (2,2);
+					\draw (2,0) to [C, l^= $C$, v_=$v_c(t)$] (2,2);
 					\begin{scope}[]
 						\draw [-latex] (0+\xshift,0+\yshift) -- (3+\xshift,0+\yshift);
 						\draw [-latex] (1.5+\xshift,-0.2+\yshift) -- (1.5+\xshift,1.5+\yshift);
@@ -745,12 +777,12 @@
 				\end{circuitikz}
 			\end{center}			
 			\begin{equation}\label{key}
-			{e_c}(t) = \frac{1}{C}\int\limits_{ - \infty }^t {i(t)dt = } 0 + \frac{1}{C}\int\limits_{{0^ - }}^{{0^ + }} {{U_0}(t)dt + } 0 = \frac{1}{C}{U_{ - 1}}(t) = 
+			{v_c}(t) = \frac{1}{C}\int\limits_{ - \infty }^t {i(t)dt = } 0 + \frac{1}{C}\int\limits_{{0^ - }}^{{0^ + }} {{U_0}(t)dt + } 0 = \frac{1}{C}{U_{ - 1}}(t) = 
 			\textcolor{red}{\frac{1}{C}~V}
 			\end{equation}
 			e
 			\begin{equation}\label{key}
-			W(t) = \frac{1}{2}Ce_c^2(t) = \frac{1}{2}C{\left( {\frac{1}{C}{U_{ - 1}}(t)} \right)^2} = \frac{1}{{2C}}{U_{ - 1}}(t)
+			w(t) = \frac{1}{2}Cv_c^2(t) = \frac{1}{2}C{\left( {\frac{1}{C}{U_{ - 1}}(t)} \right)^2} = \frac{1}{{2C}}{U_{ - 1}}(t)
 			= \textcolor{red}{\frac{1}{{2C}}~J}
 			\end{equation}
 			\textcolor{red}{Para $t>0$.}
@@ -758,12 +790,570 @@
 	}
 \end{overprint}
 \end{frame}
+
 %------------------------------------------------
-\begin{frame}[noframenumbering]
-	\vfill
-	\centering
-	\Huge{Thank you!}
-	\vfill
+\section{Decomposição de Sinais em Funções Singulares}
+\begin{frame}
+\frametitle{Sumário}
+\small
+\tableofcontents[currentsection]
+\end{frame}
+
+\begin{frame}
+\frametitle{Decomposição de Sinais em Funções Singulares}
+	\begin{itemize}
+		\item Uma forma de onda de tensão ou corrente, constituída por segmentos de reta, pode ser \textbf{decomposta em finitas funções degraus ou rampa}.
+		\vfill
+		\item Utilização do \textbf{teorema da superposição}.
+	\end{itemize}	
+\end{frame}
+
+\begin{frame}
+\frametitle{Decomposição de Sinais em Funções Singulares}
+\begin{overprint}
+	\only<1>
+	{
+		\begin{block}{Exemplo 1}
+			\begin{center}
+				\begin{circuitikz} 			
+					\begin{scope}[]
+						\draw [-latex] (-0.5,0) -- (2,0);
+						\draw [-latex] (0,-0.25) -- (0,2);
+						\draw node[] (F) at (2,-0.25) {$t$};
+						\draw node[] (G) at (-0.5,1.75) {$x(t)$};
+						\draw node[] (H) at (+1,-0.25) {$t_0$};
+						\draw [color=red] (-0.5,0) -- (0,0);
+						\draw [color=red] (0,0) -- (0,1);
+						\draw [color=red] (0,1) -- (1,1);
+						\draw [color=red] (1,1) -- (1,0);
+						\draw [color=red] (1,0) -- (1.85,0);
+						\draw node[] (I) at (-0.5,+1) {$X_m$};
+					\end{scope}				
+				\end{circuitikz}
+			\end{center}		
+		\end{block}
+	}
+	\only<2>
+	{
+		\begin{block}{Exemplo 1}
+			\begin{center}
+				\begin{circuitikz}[scale=0.5, every node/.style={scale=0.5}]		
+					\begin{scope}[]
+						\draw [-latex] (-0.5,0) -- (2,0);
+						\draw [-latex] (0,-0.25) -- (0,2);
+						\draw node[] (F) at (2,-0.25) {$t$};
+						\draw node[] (G) at (-0.5,1.75) {$x(t)$};
+						\draw node[] (H) at (+1,-0.25) {$t_0$};
+						\draw [color=red] (-0.5,0) -- (0,0);
+						\draw [color=red] (0,0) -- (0,1);
+						\draw [color=red] (0,1) -- (1,1);
+						\draw [color=red] (1,1) -- (1,0);
+						\draw [color=red] (1,0) -- (1.85,0);
+						\draw node[] (I) at (-0.5,+1) {$X_m$};
+					\end{scope}				
+				\end{circuitikz}
+			\end{center}
+			\begin{minipage}[b]{0.4\linewidth}
+				\begin{center}
+					\begin{circuitikz} 			
+						\begin{scope}[]
+							\draw [-latex] (-0.5,0) -- (2,0);
+							\draw [-latex] (0,-0.25) -- (0,2);
+							\draw node[] (F) at (2,-0.25) {$t$};
+							\draw node[] (G) at (-0.5,1.75) {$x(t)$};
+							\draw node[] (H) at (+1,-0.25) {$t_0$};
+							\draw [color=purple] (-0.5,0) -- (0,0);
+							\draw [color=purple] (0,0) -- (0,1);
+							\draw [color=purple] (0,1) -- (1.5,1);
+							\draw [color=purple, dotted] (1.5,1) -- (2,1);
+							\draw node[] (I) at (-0.5,+1) {$X_m$};
+						\end{scope}				
+					\end{circuitikz}
+				\end{center}
+			\end{minipage}	
+			\hfill	
+			\begin{minipage}[b]{0.1\linewidth}
+				\vspace{1cm}
+				\begin{center}
+					$\Rightarrow$
+				\end{center}
+				\vspace{1cm}				
+			\end{minipage}	
+			\hfill
+			\begin{minipage}[b]{0.4\linewidth}
+				\begin{center}
+					\begin{circuitikz} 			
+						\begin{scope}[]
+							\draw [-latex] (-0.5,0) -- (2,0);
+							\draw [-latex] (0,-0.25) -- (0,2);
+							\draw node[] (F) at (2,-0.25) {$t$};
+							\draw node[] (G) at (-0.5,1.75) {$x(t)$};
+							\draw node[] (H) at (+1,-0.25) {$t_0$};
+							\draw [color=red] (-0.5,0) -- (0,0);
+							\draw [color=red] (0,0) -- (0,1);
+							\draw [color=red] (0,1) -- (1.5,1);
+							\draw [color=red, dotted] (1.5,1) -- (2,1);
+							\draw node[] (I) at (-0.5,+1) {$X_m$};
+						\end{scope}			
+					\end{circuitikz}
+				\end{center}
+			\end{minipage}	
+			\begin{center}
+				$x(t)=\textcolor{purple}{X_mU_{-1}(t)}$
+			\end{center}
+		\end{block}		
+	}
+	\only<3>
+	{
+		\begin{block}{Exemplo 1}
+			\begin{center}
+				\begin{circuitikz}[scale=0.5, every node/.style={scale=0.5}]		
+					\begin{scope}[]
+						\draw [-latex] (-0.5,0) -- (2,0);
+						\draw [-latex] (0,-0.25) -- (0,2);
+						\draw node[] (F) at (2,-0.25) {$t$};
+						\draw node[] (G) at (-0.5,1.75) {$x(t)$};
+						\draw node[] (H) at (+1,-0.25) {$t_0$};
+						\draw [color=red] (-0.5,0) -- (0,0);
+						\draw [color=red] (0,0) -- (0,1);
+						\draw [color=red] (0,1) -- (1,1);
+						\draw [color=red] (1,1) -- (1,0);
+						\draw [color=red] (1,0) -- (1.85,0);
+						\draw node[] (I) at (-0.5,+1) {$X_m$};
+					\end{scope}				
+				\end{circuitikz}
+			\end{center}
+			\begin{minipage}[b]{0.4\linewidth}
+				\begin{center}
+					\begin{circuitikz} 			
+						\begin{scope}[]
+							\draw [-latex] (-0.5,0) -- (2,0);
+							\draw [-latex] (0,-1.25) -- (0,2);
+							\draw node[] (F) at (2,-0.25) {$t$};
+							\draw node[] (G) at (-0.5,1.75) {$x(t)$};
+							\draw node[] (H) at (+0.75,-0.25) {$t_0$};
+							\draw [color=purple] (-0.5,0) -- (0,0);
+							\draw [color=purple] (0,0) -- (0,1);
+							\draw [color=purple] (0,1) -- (1.5,1);
+							\draw [color=purple, dotted] (1.5,1) -- (2,1);
+							\draw [color=blue] (0,0) -- (1,0);
+							\draw [color=blue] (1,0) -- (1,-1);
+							\draw [color=blue] (1,-1) -- (1.5,-1); 
+							\draw [color=blue, dotted] (1.5,-1) -- (2,-1);
+							\draw node[] (I) at (-0.5,+1) {$X_m$};
+							\draw node[] (I) at (-0.5,-1) {$-X_m$};
+						\end{scope}				
+					\end{circuitikz}
+				\end{center}
+			\end{minipage}	
+			\hfill	
+			\begin{minipage}[b]{0.1\linewidth}
+				\vspace{1cm}
+				\begin{center}
+					$\Rightarrow$
+				\end{center}
+				\vspace{1cm}				
+			\end{minipage}	
+			\hfill
+			\begin{minipage}[b]{0.4\linewidth}
+				\begin{center}
+					\begin{circuitikz} 			
+						\begin{scope}[]
+							\draw [-latex] (-0.5,0) -- (2,0);
+							\draw [-latex] (0,-0.25) -- (0,2);
+							\draw node[] (F) at (2,-0.25) {$t$};
+							\draw node[] (G) at (-0.5,1.75) {$x(t)$};
+							\draw node[] (H) at (+1,-0.25) {$t_0$};
+							\draw [color=red] (-0.5,0) -- (0,0);
+							\draw [color=red] (0,0) -- (0,1);
+							\draw [color=red] (0,1) -- (1,1);
+							\draw [color=red] (1,1) -- (1,0);
+							\draw [color=red] (1,0) -- (1.85,0);
+							\draw node[] (I) at (-0.5,+1) {$X_m$};
+						\end{scope}			
+					\end{circuitikz}
+				\end{center}
+			\end{minipage}	
+			\begin{center}
+				$x(t)=\textcolor{purple}{X_mU_{-1}(t)} \textcolor{blue}{- X_mU_{-1}(t-t_0)}$ 
+			\end{center}
+		\end{block}		
+	}
+\end{overprint}
+\end{frame}
+
+\begin{frame}
+\frametitle{Decomposição de Sinais em Funções Singulares}
+\begin{overprint}
+	\only<1>
+	{
+		\begin{block}{Exemplo 2}
+			\begin{center}
+				\begin{circuitikz} 			
+					\begin{scope}[]
+						\draw [-latex] (-0.5,0) -- (2,0);
+						\draw [-latex] (0,-0.25) -- (0,2);
+						\draw node[] (F) at (2,-0.25) {$t$};
+						\draw node[] (G) at (-0.5,1.75) {$x(t)$};
+						\draw node[] (H) at (+1,-0.25) {$2$};
+						\draw node[] (H) at (+1.5,-0.25) {$3$};
+						\draw node[] (I) at (-0.25,0.5) {$1$};
+						\draw node[] (I) at (-0.25,1) {$2$};
+						\draw [color=red] (-0.5,0) -- (0,0);
+						\draw [color=red] (0,0) -- (1,1);
+						\draw [color=red] (1,1) -- (1,0.5);
+						\draw [color=red] (1,0.5) -- (1.5,0.5);
+						\draw [color=red] (1.5,0.5) -- (1.5,0);
+						\draw [color=red] (1.5,0) -- (1.85,0);
+						
+					\end{scope}				
+				\end{circuitikz}
+			\end{center}
+		\end{block}
+	}
+	\only<2>
+	{
+		\begin{block}{Exemplo 2}
+			\begin{center}
+				\begin{circuitikz}[scale=0.5, every node/.style={scale=0.5}]		
+					\begin{scope}[]
+						\draw [-latex] (-0.5,0) -- (2,0);
+						\draw [-latex] (0,-0.25) -- (0,2);
+						\draw node[] (F) at (2,-0.25) {$t$};
+						\draw node[] (G) at (-0.5,1.75) {$x(t)$};
+						\draw node[] (H) at (+1,-0.25) {$2$};
+						\draw node[] (H) at (+1.5,-0.25) {$3$};
+						\draw node[] (I) at (-0.25,0.5) {$1$};
+						\draw node[] (I) at (-0.25,1) {$2$};
+						\draw [color=red] (-0.5,0) -- (0,0);
+						\draw [color=red] (0,0) -- (1,1);
+						\draw [color=red] (1,1) -- (1,0.5);
+						\draw [color=red] (1,0.5) -- (1.5,0.5);
+						\draw [color=red] (1.5,0.5) -- (1.5,0);
+						\draw [color=red] (1.5,0) -- (1.7,0);
+					\end{scope}				
+				\end{circuitikz}
+			\end{center}
+			\begin{minipage}[b]{0.4\linewidth}
+				\begin{center}
+					\begin{circuitikz} 			
+						\begin{scope}[]
+							\draw [-latex] (-0.5,0) -- (3,0);
+							\draw [-latex] (0,-0.25) -- (0,2);
+							\draw node[] (F) at (3,-0.25) {$t$};
+							\draw node[] (G) at (-0.5,1.75) {$x(t)$};
+							\draw node[] (H) at (+1,-0.25) {$2$};
+							\draw node[] (H) at (+1.5,-0.25) {$3$};
+							\draw node[] (I) at (-0.25,0.5) {$1$};
+							\draw node[] (I) at (-0.25,1) {$2$};
+							\draw [color=purple] (-0.5,0) -- (0,0);
+							\draw [color=purple] (0,0) -- (1,1);
+							\draw [color=purple, dotted] (1,1) -- (1.5,1.5);
+						\end{scope}				
+					\end{circuitikz}
+				\end{center}
+			\end{minipage}	
+			\hfill	
+			\begin{minipage}[b]{0.1\linewidth}
+				\vspace{1cm}
+				\begin{center}
+					$\Rightarrow$
+				\end{center}
+				\vspace{1cm}				
+			\end{minipage}	
+			\hfill
+			\begin{minipage}[b]{0.4\linewidth}
+				\begin{center}
+					\begin{circuitikz} 			
+						\begin{scope}[]
+							\draw [-latex] (-0.5,0) -- (2,0);
+							\draw [-latex] (0,-0.25) -- (0,2);
+							\draw node[] (F) at (2,-0.25) {$t$};
+							\draw node[] (G) at (-0.5,1.75) {$x(t)$};
+							\draw node[] (H) at (+1,-0.25) {$2$};
+							\draw node[] (H) at (+1.5,-0.25) {$3$};
+							\draw node[] (I) at (-0.25,0.5) {$1$};
+							\draw node[] (I) at (-0.25,1) {$2$};
+							\draw [color=red] (-0.5,0) -- (0,0);
+							\draw [color=red] (0,0) -- (1,1);
+							\draw [color=red, dotted] (1,1) -- (1.5,1.5);
+						\end{scope}			
+					\end{circuitikz}
+				\end{center}
+			\end{minipage}	
+			\begin{center}
+				$x(t)=\textcolor{purple}{U_{-2}(t)}$ 
+			\end{center}
+		\end{block}	
+	}
+	\only<3>
+	{
+		\begin{block}{Exemplo 2}
+			\begin{center}
+				\begin{circuitikz}[scale=0.5, every node/.style={scale=0.5}]		
+					\begin{scope}[]
+						\draw [-latex] (-0.5,0) -- (2,0);
+						\draw [-latex] (0,-0.25) -- (0,2);
+						\draw node[] (F) at (2,-0.25) {$t$};
+						\draw node[] (G) at (-0.5,1.75) {$x(t)$};
+						\draw node[] (H) at (+1,-0.25) {$2$};
+						\draw node[] (H) at (+1.5,-0.25) {$3$};
+						\draw node[] (I) at (-0.25,0.5) {$1$};
+						\draw node[] (I) at (-0.25,1) {$2$};
+						\draw [color=red] (-0.5,0) -- (0,0);
+						\draw [color=red] (0,0) -- (1,1);
+						\draw [color=red] (1,1) -- (1,0.5);
+						\draw [color=red] (1,0.5) -- (1.5,0.5);
+						\draw [color=red] (1.5,0.5) -- (1.5,0);
+						\draw [color=red] (1.5,0) -- (1.7,0);
+					\end{scope}				
+				\end{circuitikz}
+			\end{center}
+			\begin{minipage}[b]{0.4\linewidth}
+				\begin{center}
+					\begin{circuitikz} 			
+						\begin{scope}[]
+							\draw [-latex] (-0.5,0) -- (3,0);
+							\draw [-latex] (0,-0.25) -- (0,2);
+							\draw node[] (F) at (3,0.25) {$t$};
+							\draw node[] (G) at (-0.5,1.75) {$x(t)$};
+							\draw node[] (H) at (+1,0.25) {$2$};
+							\draw node[] (H) at (+1.5,0.25) {$3$};
+							\draw node[] (I) at (-0.25,0.5) {$1$};
+							\draw node[] (I) at (-0.25,1) {$2$};
+							\draw [color=purple] (-0.5,0) -- (0,0);
+							\draw [color=purple] (0,0) -- (1,1);
+							\draw [color=purple, dotted] (1,1) -- (1.5,1.5);
+							\draw [color=blue] (0,0) -- (1,0);
+							\draw [color=blue] (1,0) -- (1.75,-0.75);
+							\draw [color=blue, dotted] (1.75,-0.75) -- (2,-1);
+						\end{scope}				
+					\end{circuitikz}
+				\end{center}
+			\end{minipage}	
+			\hfill	
+			\begin{minipage}[b]{0.1\linewidth}
+				\vspace{1cm}
+				\begin{center}
+					$\Rightarrow$
+				\end{center}
+				\vspace{1cm}				
+			\end{minipage}	
+			\hfill
+			\begin{minipage}[b]{0.4\linewidth}
+				\begin{center}
+					\begin{circuitikz} 			
+						\begin{scope}[]
+							\draw [-latex] (-0.5,0) -- (2,0);
+							\draw [-latex] (0,-0.25) -- (0,2);
+							\draw node[] (F) at (2,-0.25) {$t$};
+							\draw node[] (G) at (-0.5,1.75) {$x(t)$};
+							\draw node[] (H) at (+1,-0.25) {$2$};
+							\draw node[] (H) at (+1.5,-0.25) {$3$};
+							\draw node[] (I) at (-0.25,0.5) {$1$};
+							\draw node[] (I) at (-0.25,1) {$2$};
+							\draw [color=red] (-0.5,0) -- (0,0);
+							\draw [color=red] (0,0) -- (1,1);
+							\draw [color=red, dotted] (1,1) -- (2,1);
+						\end{scope}			
+					\end{circuitikz}
+				\end{center}
+			\end{minipage}	
+			\begin{center}
+				$x(t)=\textcolor{purple}{U_{-2}(t)} \textcolor{blue}{- U_{-2}(t-2)}$
+			\end{center}
+		\end{block}	
+	}
+	\only<4>
+	{
+		\begin{block}{Exemplo 2}
+			\begin{center}
+				\begin{circuitikz}[scale=0.5, every node/.style={scale=0.5}]		
+					\begin{scope}[]
+						\draw [-latex] (-0.5,0) -- (2,0);
+						\draw [-latex] (0,-0.25) -- (0,2);
+						\draw node[] (F) at (2,-0.25) {$t$};
+						\draw node[] (G) at (-0.5,1.75) {$x(t)$};
+						\draw node[] (H) at (+1,-0.25) {$2$};
+						\draw node[] (H) at (+1.5,-0.25) {$3$};
+						\draw node[] (I) at (-0.25,0.5) {$1$};
+						\draw node[] (I) at (-0.25,1) {$2$};
+						\draw [color=red] (-0.5,0) -- (0,0);
+						\draw [color=red] (0,0) -- (1,1);
+						\draw [color=red] (1,1) -- (1,0.5);
+						\draw [color=red] (1,0.5) -- (1.5,0.5);
+						\draw [color=red] (1.5,0.5) -- (1.5,0);
+						\draw [color=red] (1.5,0) -- (1.7,0);
+					\end{scope}				
+				\end{circuitikz}
+			\end{center}
+			\begin{minipage}[b]{0.4\linewidth}
+				\begin{center}
+					\begin{circuitikz} 			
+						\begin{scope}[]
+							\draw [-latex] (-0.5,0) -- (3,0);
+							\draw [-latex] (0,-0.25) -- (0,2);
+							\draw node[] (F) at (3,0.25) {$t$};
+							\draw node[] (G) at (-0.5,1.75) {$x(t)$};
+							\draw node[] (H) at (+1,0.25) {$2$};
+							\draw node[] (H) at (+1.5,0.25) {$3$};
+							\draw node[] (I) at (-0.25,0.5) {$1$};
+							\draw node[] (I) at (-0.25,1) {$2$};
+							\draw [color=purple] (-0.5,0) -- (0,0);
+							\draw [color=purple] (0,0) -- (1,1);
+							\draw [color=purple, dotted] (1,1) -- (1.5,1.5);
+							\draw [color=blue] (0,0) -- (1,0);
+							\draw [color=blue] (1,0) -- (1.75,-0.75);
+							\draw [color=blue, dotted] (1.75,-0.75) -- (2,-1);
+							\draw [color=Green] (0,-0.01) -- (1,-0.01);
+							\draw [color=Green] (1,-0.01) -- (1,-0.5);
+							\draw [color=Green] (1,-0.5) -- (2.5,-0.5);
+							\draw [color=Green, dotted] (2.5,-0.5) -- (3,-0.5);
+						\end{scope}				
+					\end{circuitikz}
+				\end{center}
+			\end{minipage}	
+			\hfill	
+			\begin{minipage}[b]{0.1\linewidth}
+				\vspace{1cm}
+				\begin{center}
+					$\Rightarrow$
+				\end{center}
+				\vspace{1cm}				
+			\end{minipage}	
+			\hfill
+			\begin{minipage}[b]{0.4\linewidth}
+				\begin{center}
+					\begin{circuitikz} 			
+						\begin{scope}[]
+							\draw [-latex] (-0.5,0) -- (2,0);
+							\draw [-latex] (0,-0.25) -- (0,2);
+							\draw node[] (F) at (2,-0.25) {$t$};
+							\draw node[] (G) at (-0.5,1.75) {$x(t)$};
+							\draw node[] (H) at (+1,-0.25) {$2$};
+							\draw node[] (H) at (+1.5,-0.25) {$3$};
+							\draw node[] (I) at (-0.25,0.5) {$1$};
+							\draw node[] (I) at (-0.25,1) {$2$};
+							\draw [color=red] (-0.5,0) -- (0,0);
+							\draw [color=red] (0,0) -- (1,1);
+							\draw [color=red] (1,1) -- (1,0.5);
+							\draw [color=red] (1,0.5) -- (1.5,0.5);
+							\draw [color=red, dotted] (1.5,0.5) -- (2,0.5);
+						\end{scope}			
+					\end{circuitikz}
+				\end{center}
+			\end{minipage}	
+			\begin{center}
+				$x(t)=\textcolor{purple}{U_{-2}(t)} \textcolor{blue}{- U_{-2}(t-2)} \textcolor{Green}{- U_{-1}(t-2)}$
+			\end{center}
+		\end{block}	
+	}
+	\only<5>
+	{
+		\begin{block}{Exemplo 2}
+			\begin{center}
+				\begin{circuitikz}[scale=0.5, every node/.style={scale=0.5}]		
+					\begin{scope}[]
+						\draw [-latex] (-0.5,0) -- (2,0);
+						\draw [-latex] (0,-0.25) -- (0,2);
+						\draw node[] (F) at (2,-0.25) {$t$};
+						\draw node[] (G) at (-0.5,1.75) {$x(t)$};
+						\draw node[] (H) at (+1,-0.25) {$2$};
+						\draw node[] (H) at (+1.5,-0.25) {$3$};
+						\draw node[] (I) at (-0.25,0.5) {$1$};
+						\draw node[] (I) at (-0.25,1) {$2$};
+						\draw [color=red] (-0.5,0) -- (0,0);
+						\draw [color=red] (0,0) -- (1,1);
+						\draw [color=red] (1,1) -- (1,0.5);
+						\draw [color=red] (1,0.5) -- (1.5,0.5);
+						\draw [color=red] (1.5,0.5) -- (1.5,0);
+						\draw [color=red] (1.5,0) -- (1.7,0);
+					\end{scope}				
+				\end{circuitikz}
+			\end{center}
+			\begin{minipage}[b]{0.4\linewidth}
+				\begin{center}
+					\begin{circuitikz} 			
+						\begin{scope}[]
+							\draw [-latex] (-0.5,0) -- (3,0);
+							\draw [-latex] (0,-0.25) -- (0,2);
+							\draw node[] (F) at (3,0.25) {$t$};
+							\draw node[] (G) at (-0.5,1.75) {$x(t)$};
+							\draw node[] (H) at (+1,0.25) {$2$};
+							\draw node[] (H) at (+1.5,0.25) {$3$};
+							\draw node[] (I) at (-0.25,0.5) {$1$};
+							\draw node[] (I) at (-0.25,1) {$2$};
+							\draw [color=purple] (-0.5,0) -- (0,0);
+							\draw [color=purple] (0,0) -- (1,1);
+							\draw [color=purple, dotted] (1,1) -- (1.5,1.5);
+							\draw [color=blue] (0,0) -- (1,0);
+							\draw [color=blue] (1,0) -- (1.75,-0.75);
+							\draw [color=blue, dotted] (1.75,-0.75) -- (2,-1);
+							\draw [color=Green] (0,-0.01) -- (1,-0.01);
+							\draw [color=Green] (1,-0.01) -- (1,-0.5);
+							\draw [color=Green] (1,-0.5) -- (2.5,-0.5);
+							\draw [color=Green, dotted] (2.5,-0.5) -- (3,-0.5);
+							\draw [color=YellowOrange] (0,-0.02) -- (1.5,-0.02);
+							\draw [color=YellowOrange] (1.5,-0.02) -- (1.5,-0.51);
+							\draw [color=YellowOrange] (1.5,-0.51) -- (2.5,-0.51);
+							\draw [color=YellowOrange, dotted] (2.5,-0.51) -- (3,-0.51);
+						\end{scope}				
+					\end{circuitikz}
+				\end{center}
+			\end{minipage}	
+			\hfill	
+			\begin{minipage}[b]{0.1\linewidth}
+				\vspace{1cm}
+				\begin{center}
+					$\Rightarrow$
+				\end{center}
+				\vspace{1cm}				
+			\end{minipage}	
+			\hfill
+			\begin{minipage}[b]{0.4\linewidth}
+				\begin{center}
+					\begin{circuitikz} 			
+						\begin{scope}[]
+							\draw [-latex] (-0.5,0) -- (2,0);
+							\draw [-latex] (0,-0.25) -- (0,2);
+							\draw node[] (F) at (2,-0.25) {$t$};
+							\draw node[] (G) at (-0.5,1.75) {$x(t)$};
+							\draw node[] (H) at (+1,-0.25) {$2$};
+							\draw node[] (H) at (+1.5,-0.25) {$3$};
+							\draw node[] (I) at (-0.25,0.5) {$1$};
+							\draw node[] (I) at (-0.25,1) {$2$};
+							\draw [color=red] (-0.5,0) -- (0,0);
+							\draw [color=red] (0,0) -- (1,1);
+							\draw [color=red] (1,1) -- (1,0.5);
+							\draw [color=red] (1,0.5) -- (1.5,0.5);
+							\draw [color=red] (1.5,0.5) -- (1.5,0);
+							\draw [color=red] (1.5,0) -- (1.85,0);
+						\end{scope}			
+					\end{circuitikz}
+				\end{center}
+			\end{minipage}	
+			\begin{center}
+				$x(t)=\textcolor{purple}{U_{-2}(t)} \textcolor{blue}{- U_{-2}(t-2)} \textcolor{Green}{- U_{-1}(t-2)} \textcolor{YellowOrange}{- U_{-1}(t-3)}$
+			\end{center}
+		\end{block}	
+	}
+\end{overprint}
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}
+\frametitle{References}
+\footnotesize{
+	\begin{thebibliography}{99} % Beamer does not support BibTeX so references must be inserted manually as below
+		\bibitem[Vander Menengoy da Costa, 2013]{p1} Vander Menengoy da Costa (2013).
+		\newblock Circuitos elétricos lineares: enfoque teórico e prático.
+		\newblock \emph{Editora Interciência}.
+		
+		\bibitem[Charles M. Close, 1975]{p1} Charles M. Close (1975).
+		\newblock Circuitos Lineares.
+		\newblock \emph{Livros Técnicos e Científicos Editora S.A.}.
+	\end{thebibliography}
+}
 \end{frame}
 
 \end{document}
